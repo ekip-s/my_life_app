@@ -1,1 +1,11 @@
-[<< Swagger >>](http://localhost:122/swagger-ui/index.html#/)
+[<< --Swagger-- >>](http://localhost:122/swagger-ui/index.html#/)
+
+[<< --front-app-- >>](https://github.com/ekip-s/my_life_front_app)
+
+# Инфо о доработках:
+
+`version 00.00.01`
+ - создаем основную логику приложения;
+ - принимаем POST запрос на создание счета; 
+ - делаем сервис, модель, репозитории и логику под создание счета; 
+ - логика создания графика; 
