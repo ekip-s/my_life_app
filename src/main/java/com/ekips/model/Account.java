@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,6 +30,8 @@ public class Account {
     @Column(name = "account_type")
     @Enumerated(EnumType.ORDINAL)
     private AccountType type;
+    @Column(name = "account_name")
+    private String accountName;
     @Column(name = "currency")
     @Enumerated(EnumType.ORDINAL)
     private Currency currency;
@@ -45,15 +48,15 @@ public class Account {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate lastPaymentDate;
     @Column(name = "rate")
-    private Double rate;
+    private BigDecimal rate;
     @Column(name = "payment")
-    private Double payment;
+    private BigDecimal payment;
     @Column(name = "account_sum_amount")
-    private Double accountSumAmount;
+    private BigDecimal accountSumAmount;
     @Column(name = "deposit_amount")
-    private Double depositAmount;
+    private BigDecimal depositAmount;
     @Column(name = "last_payment")
-    private Double lastPayment;
+    private BigDecimal lastPayment;
     @Column(name = "create_dt")
     @DateTimeFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
     private LocalDateTime createDT;
@@ -62,6 +65,10 @@ public class Account {
     private LocalDateTime lastUpdateDT;
     @OneToMany(mappedBy="account", fetch = FetchType.LAZY)
     private List<Schedule> schedule;
+
+    public Account(UUID id) {
+        this.id = id;
+    }
 
     public void isNew() {
         this.createDT=LocalDateTime.now();

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
@@ -27,10 +28,16 @@ public class Schedule {
     @Column(name = "schedule_num")
     private Integer scheduleNum;
     @Column(name = "pay_amount")
-    private Double payAmount;
+    private BigDecimal payAmount;
     @Column(name = "pay_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate payDate;
+
+    public Schedule(Integer scheduleNum, BigDecimal payAmount, LocalDate payDate) {
+        this.scheduleNum = scheduleNum;
+        this.payAmount = payAmount;
+        this.payDate = payDate;
+    }
 
     @Override
     public boolean equals(Object o) {

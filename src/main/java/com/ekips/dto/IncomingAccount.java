@@ -20,6 +20,8 @@ public class IncomingAccount {
     private AccountType type;
     @Schema(description = "RUB")
     private Currency currency;
+    @Schema(description = "КН Тинькофф")
+    private String accountName;
     @Schema(description = "monthly")
     private Capitalization capitalization;
     @Schema(description = "2020-01-01")
